@@ -1,0 +1,31 @@
+version: 1
+imports: []
+schemas:
+  - id: daily
+    title: daily
+    parent: root
+    children:
+      - journal
+  - id: journal
+    title: journal
+    desc: ""
+    parent: daily
+    children:
+      - year
+  - id: year
+    title: year
+    pattern: "[1-2][0-9][0-9][0-9]"
+    children:
+      - month
+  - id: month
+    title: month
+    pattern: "[0-9][0-9]"
+    children:
+      - day
+  - id: day
+    title: day
+    pattern: "[0-9][0-9]"
+    namespace: true
+    template:
+      id: templates.daily
+      type: note
